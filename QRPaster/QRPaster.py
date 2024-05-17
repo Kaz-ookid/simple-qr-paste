@@ -9,10 +9,11 @@ if __name__ == '__main__':
 
     # USE:
     # Prepare a folder with the following elements inside :
-    # - a subfolder named OUTPUT
-    # - the background file you want to paste QRs on
-    # - all the QRs to print.
-    # Please do not add any other file inside this main folder other than specified above!
+    # - an output folder
+    # - an input folder that will contain :
+    #   * the background file you want to paste QRs on
+    #   * all the QRs to print.
+    # Please do not add any other file inside this input folder other than specified above!
 
     # You should try with a single QR to find the right adjustments for your QRs size and positions.
     # Play with paste_x and paste_y to find the right coordinates.
@@ -25,6 +26,7 @@ if __name__ == '__main__':
     # TO FILL
     blank_ticket_file_name = 'ticket.png'
     input_folder_abs_path = 'C:/absolut/path/to/the/INPUT/folder/'
+    output_folder_abs_path = 'C:/absolut/path/to/the/OUTPUT/folder/'
     # --------------------------------------------
 
     blank_ticket_file = input_folder_abs_path + blank_ticket_file_name
@@ -42,5 +44,5 @@ if __name__ == '__main__':
         paste_x = ticketWidth - ((ticketWidth / 2 - width) / 2 + width)
         paste_y = ticketHeight - ((ticketHeight - height) / 2 + height) + 50
         temp_im.paste(im, (paste_x, paste_y))
-        temp_im.save(os.path.join(input_folder_abs_path + "\OUTPUT", "qr_" + str(i) + ".png"))
+        temp_im.save(os.path.join(output_folder_abs_path, "qr_" + str(i) + ".png"))
         i += 1
